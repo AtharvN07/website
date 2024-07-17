@@ -68,8 +68,8 @@
         }
 
         .project img {
-            width: 20%;
-            height: 500%;
+            width: 30%;
+            height: 800%;
             border-bottom: 5px solid #333;
         }
 
@@ -88,35 +88,97 @@
             font-size: 1em;
         }
 
-        /* Footer styling */
-        footer {
-            background: #222;
-            color: #fff;
-            padding: 1.5em 0;
-            text-align: center;
-            border-top: 5px solid #444;
+        /* Tabs */
+        .tabs {
+            display: flex;
+            cursor: pointer;
             margin-top: 2em;
+            background-color: #ddd;
+            border-radius: 5px;
+            overflow: hidden;
         }
 
-        footer p {
-            margin: 0;
-            font-size: 1em;
+        .tab-button {
+            flex: 1;
+            padding: 1em;
+            text-align: center;
+            background: #eee;
+            border: 1px solid #ccc;
+            border-bottom: none;
+            font-size: 1.2em;
+            color: #333;
+            transition: background 0.3s ease;
         }
 
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .tab-button.active {
+            background: #fff;
+            color: #000;
+            border-bottom: 1px solid transparent;
+            font-weight: bold;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
+        .tab-content {
+            padding: 1em;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-top: none;
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .tab-content.hidden {
+            display: none;
+        }
+
+        /* Gallery styling for a three-column layout */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1em;
+        }
+
+        .gallery img {
+            width: 50%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .gallery .gallery-item {
+            flex: 1 1 calc(33.333% - 1em); /* Three columns with a small gap */
+            box-sizing: border-box;
+        }
+
+        .support-content {
+            padding: 2em;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            margin-bottom: 2em;
+        }
+
+        .support-content h2 {
+            margin-top: 0;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .gallery .gallery-item {
+                flex: 1 1 calc(25% - 1em); /* Two columns on smaller screens */
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+
+            .tabs {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery .gallery-item {
+                flex: 1 1 100%; /* One column on very small screens */
+            }
+
+            .tab-button {
+                font-size: 1em;
             }
         }
     </style>
@@ -125,7 +187,7 @@
     <header>
         <div class="container">
             <h1>K + J Begad Associates</h1>
-            <p>Architects, interior designer & landsacpe designer.</p>
+            <p>Architects, interior designer & landscape designer.</p>
         </div>
     </header>
 
@@ -133,8 +195,8 @@
         <section class="project">
             <img src="http://surl.li/lkyfuz" alt="Modern Building">
             <div class="project-content">
-                <h2>Modern Building designs</h2>
-                <p>This is the beauty of designs in modern buildings .</p>
+                <h2>Modern Building Designs</h2>
+                <p>This is the beauty of designs in modern buildings.</p>
             </div>
         </section>
 
@@ -145,25 +207,69 @@
                 <p>An elegant residential building that combines traditional and contemporary architectural elements.</p>
             </div>
         </section>
-		
 
-        <section class="project">
-            <img src="http://surl.li/clnqbb" alt="Modern Interior">
-            <div class="project-content">
-                <h2>Modern Interior Design</h2>
-                <p>Explore the beauty of modern interior designs with this sophisticated and functional space.</p>
-            </div>
+        <!-- Tabs for Gallery Content -->
+        <div class="tabs">
+            <div class="tab-button active" data-tab="modern-building">Modern Building Designs</div>
+            <div class="tab-button" data-tab="elegant-house">Elegant House</div>
+        </div>
+
+        <!-- Content for Tabs -->
+        <div class="tab-content" id="modern-building">
+            <section class="gallery">
+                <div class="gallery-item">
+                    <img src="D:\c language\arjun\photo3.jpeg" alt="Modern Interior 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="D:\c language\arjun\photo4.jpeg" alt="Modern Interior 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="D:\c language\arjun\photo5.jpeg" alt="Modern Interior 5">
+                </div>
+            </section>
+        </div>
+        <div class="tab-content hidden" id="elegant-house">
+            <section class="gallery">
+                <div class="gallery-item">
+                    <img src="D:\c language\arjun\photo1.jpeg" alt="Elegant Interior 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="D:\c language\arjun\photo2.jpeg" alt="Elegant Interior 2">
+                </div>
+            </section>
+        </div>
+
+        <!-- Support Section -->
+        <section class="support-content">
+            <h2>Support</h2>
+            <p>Email: sapnasutar878@gmail.com</p>
+            <p>Address: Shinde mala, near lovely circle, below Vishwas Multi-Purpose Hall, Sangli 416416</p>
         </section>
     </div>
-	
-         <section class="Project">
-		 <div class="Project-content">
-		      <h2> Support</h2>
-			  <p> email-sapnasutar878@gmail.com</p>
-			  <p> address-Shinde mala, near lovely circle, below vishwas multi- purpose hall, sangli 416416</p>
-			  
+    
     <footer>
         <p>&copy; begadasso.22@gmail.com. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.tab-button');
+            const contents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs
+                    tabs.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to the clicked tab
+                    tab.classList.add('active');
+                    
+                    // Hide all content sections
+                    contents.forEach(content => content.classList.add('hidden'));
+                    // Show the content of the clicked tab
+                    document.getElementById(tab.dataset.tab).classList.remove('hidden');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
